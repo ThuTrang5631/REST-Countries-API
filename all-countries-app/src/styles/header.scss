@@ -1,0 +1,22 @@
+.container-header {
+  @include flexRow;
+  padding: 40px 0;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+  .header-title {
+    @include textExtraBold($very-dark-blue, 28px);
+  }
+
+  .header-btn {
+    border: none;
+    background-color: transparent;
+    @include textSemiBold($very-dark-blue, 26px);
+
+    i {
+      margin-right: 12px;
+    }
+  }
+}
