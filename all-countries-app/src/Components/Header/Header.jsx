@@ -3,7 +3,7 @@ const Header = () => {
     <header className="container container-header">
       <p className="header-title">Where in the world?</p>
       <button className="header-btn">
-        <i class="fa fa-moon-o"></i>Dark Mode
+        <i className="fa fa-moon-o"></i>Dark Mode
       </button>
     </header>
   );

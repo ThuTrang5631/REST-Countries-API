@@ -13,3 +13,9 @@ $white: hsl(0, 0%, 100%);
 // - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
 // - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
 // - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+
+// Breakpoints
+$breakpoint-sm: 375px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1440px;

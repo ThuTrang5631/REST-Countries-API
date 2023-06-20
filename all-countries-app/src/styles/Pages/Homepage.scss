@@ -1,0 +1,92 @@
+.homepage-container {
+  .homepage-filter-search {
+    @include flexColumn();
+  }
+
+  .homepage-form {
+    @include flexRow();
+    position: relative;
+
+    .input {
+      padding: 13px 5px 13px 45px;
+      width: 100%;
+      font-size: 15px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .search-btn {
+      border: none;
+      background: transparent;
+      position: absolute;
+      top: 13px;
+      left: 20px;
+      padding: 0;
+    }
+  }
+
+  .wrap-homepage-form {
+    margin-bottom: 20px;
+  }
+
+  .homepage-filter {
+    padding: 15px;
+    max-width: 50%;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearence: none;
+    background-image: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png");
+    background-position: right 15px bottom 45%; /*Positioning*/
+    background-repeat: no-repeat; /*Prevent showing multiple background images*/
+    background-size: 10px;
+  }
+}
+
+.list-cardcountry {
+  display: grid;
+  //   grid-template-columns: repeat(4, auto);
+  //   grid-template-columns: 75%;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .homepage-container {
+    .homepage-filter-search {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .wrap-homepage-form {
+      margin-bottom: 0;
+      width: 55%;
+      margin-right: 10px;
+    }
+
+    .homepage-form {
+      .input {
+        padding: 15px 5px 15px 45px;
+      }
+    }
+
+    .homepage-filter {
+      width: 40%;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .homepage-container {
+    .homepage-filter {
+      width: 20%;
+    }
+
+    .wrap-homepage-form {
+      width: 35%;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.container-header {
+  @include flexRow;
+  padding: 20px 0;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  margin-bottom: 20px;
+
+  .header-title {
+    @include textExtraBold($very-dark-blue, 20px);
+  }
+
+  .header-btn {
+    border: none;
+    background-color: transparent;
+    @include textSemiBold($very-dark-blue, 15px);
+
+    i {
+      margin-right: 8px;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .container-header {
+    padding: 40px;
+
+    .header-title {
+      font-size: 30px;
+    }
+
+    .header-btn {
+      font-size: 26px;
+    }
+
+    i {
+      margin-right: 12px;
+    }
+  }
+}
