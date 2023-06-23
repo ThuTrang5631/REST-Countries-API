@@ -9,6 +9,10 @@
 
   .header-title {
     @include textExtraBold($very-dark-blue, 20px);
+
+    .link {
+      color: $very-dark-blue;
+    }
   }
 
   .header-btn {
