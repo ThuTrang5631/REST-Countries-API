@@ -1,11 +1,13 @@
 .container-cardcountry {
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
   width: 300px;
 
   .cardcoutry-image {
     border-radius: 5px 5px 0 0;
+    height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .cardcountry-desc {
@@ -19,15 +21,13 @@
     .title {
       @include textSemiBold($very-dark-blue, 15px);
       margin-right: 5px;
+      @include overflowText();
     }
 
     .desc {
       @include textLight($very-dark-blue, 15px);
+      @include overflowText();
     }
-  }
-
-  .cardcoutry-image {
-    max-width: 100%;
   }
 
   .cardcountry-bottom {
@@ -37,5 +37,11 @@
   .cardcoutry-name {
     @include textExtraBold($very-dark-blue, 18px);
     margin-bottom: 10px;
+    @include overflowText();
+  }
+
+  .cardcountry-top {
+    max-height: 50%;
+    height: 100%;
   }
 }

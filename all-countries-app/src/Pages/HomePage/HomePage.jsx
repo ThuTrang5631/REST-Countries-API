@@ -1,9 +1,25 @@
 import Header from "../../Components/Header";
 import CardCountry from "../../Components/CardCountry";
+import axios from "axios";
+import { getAllCountriesURL } from "../../utils/constants";
+import { useEffect, useState } from "react";
 
 const OPTIONS = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
 const HomePage = () => {
+  const [dataAllCountry, setDataAllCountry] = useState(null);
+
+  const getAllCountries = () => {
+    axios.get(getAllCountriesURL).then((res) => {
+      console.log(res);
+      const data = res.data;
+      setDataAllCountry(data);
+    });
+  };
+
+  useEffect(() => getAllCountries(), []);
+
+  console.log("data", dataAllCountry);
   return (
     <>
       <Header />
@@ -33,11 +49,18 @@ const HomePage = () => {
           </select>
         </div>
         <div className="list-cardcountry">
-          <CardCountry />
-          <CardCountry />
-          <CardCountry />
-          <CardCountry />
-          <CardCountry />
+          {dataAllCountry?.map((item) => {
+            return (
+              <CardCountry
+                key={item?.name}
+                nameCountry={item?.name?.common}
+                flagCountry={item?.flags?.png}
+                population={item?.population}
+                region={item?.region}
+                capital={item?.capital}
+              />
+            );
+          })}
         </div>
       </main>
     </>

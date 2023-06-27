@@ -1,27 +1,33 @@
-const CardCountry = () => {
+const CardCountry = ({
+  flagCountry,
+  nameCountry,
+  population,
+  region,
+  capital,
+}) => {
   return (
-    <a className="container-cardcountry">
+    <a className="container-cardcountry" href="/">
       <div className="cardcountry-top">
         <img
           className="cardcoutry-image"
-          alt="image flag"
-          src="https://flagcdn.com/ax.svg"
+          alt="flag country"
+          src={flagCountry}
         />
       </div>
       <div className="cardcountry-bottom">
-        <p className="cardcoutry-name">Aland Islands</p>
+        <p className="cardcoutry-name">{nameCountry}</p>
         <ul className="cardcountry-content">
           <li className="cardcountry-desc">
             <p className="title">Population:</p>
-            <p className="desc">28,875</p>
+            <p className="desc">{population}</p>
           </li>
           <li className="cardcountry-desc">
             <p className="title">Region:</p>
-            <p className="desc">Europe</p>
+            <p className="desc">{region}</p>
           </li>
           <li className="cardcountry-desc">
             <p className="title">Capital:</p>
-            <p className="desc">Mariehamn</p>
+            <p className="desc">{capital}</p>
           </li>
         </ul>
       </div>

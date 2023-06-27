@@ -1,6 +1,9 @@
 .homepage-container {
+  padding-bottom: 50px;
+
   .homepage-filter-search {
     @include flexColumn();
+    margin-bottom: 50px;
   }
 
   .homepage-form {
@@ -40,18 +43,17 @@
     -moz-appearance: none;
     appearence: none;
     background-image: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png");
-    background-position: right 15px bottom 45%; /*Positioning*/
-    background-repeat: no-repeat; /*Prevent showing multiple background images*/
+    background-position: right 15px bottom 45%;
+    background-repeat: no-repeat;
     background-size: 10px;
   }
-}
 
-.list-cardcountry {
-  display: grid;
-  //   grid-template-columns: repeat(4, auto);
-  //   grid-template-columns: 75%;
-  justify-content: center;
-  margin-top: 20px;
+  .list-cardcountry {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 45px;
+  }
 }
 
 @media screen and (min-width: $breakpoint-md) {
