@@ -11,6 +11,7 @@ const HomePage = () => {
   const [dataCountry, setDataCountry] = useState(null);
   const [countrySearch, setCountrySearch] = useState(null);
   const [openModal, setOpenModal] = useState(false);
+  const [regionFilter, setRegionFilter] = useState(null);
 
   const getAllCountries = () => {
     axios.get(getAllCountriesURL).then((res) => {
@@ -42,7 +43,18 @@ const HomePage = () => {
       });
   };
 
-  console.log("search", countrySearch);
+  const getCountriesByFilter = (e) => {
+    e.preventDefault();
+    axios
+      .get(`https://restcountries.com/v3.1/region/${regionFilter}`)
+      .then((res) => {
+        console.log(res);
+        const data = res.data;
+        setDataCountry(data);
+      });
+  };
+
+  console.log("search filter", regionFilter);
   return (
     <>
       <Header />
@@ -64,7 +76,14 @@ const HomePage = () => {
               </button>
             </form>
           </div>
-          <select className="homepage-filter" name="region">
+          <select
+            onChange={(e) => {
+              setRegionFilter(e.target.value);
+            }}
+            className="homepage-filter"
+            name="region"
+            onClick={getCountriesByFilter}
+          >
             <option value="" hidden>
               Filter by Region
             </option>
