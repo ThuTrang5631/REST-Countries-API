@@ -1,13 +1,18 @@
 .countrydetail-container {
   padding-bottom: 60px;
+  padding-top: 100px;
 
   .countrydetail-btn {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 5px 10px;
-    max-width: 90px;
+    min-width: 90px;
     text-align: center;
     @include textLight($black, 14px);
     margin-bottom: 40px;
+    border: none;
+    outline: none;
+    background-color: $white;
+    border-radius: 3px;
   }
 
   .wrap-introduce {
@@ -104,6 +109,8 @@
 
 @media screen and (min-width: $breakpoint-lg) {
   .countrydetail-container {
+    padding-top: 130px;
+
     .countrydetail-content {
       flex-direction: row;
     }

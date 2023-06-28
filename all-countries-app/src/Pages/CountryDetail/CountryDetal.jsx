@@ -1,13 +1,14 @@
 import Header from "../../Components/Header";
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const CountryDetail = () => {
   const { name } = useParams();
   const [data, setData] = useState(null);
   const [borderCountries, setBorderCountries] = useState([]);
   const [dataBorders, setDataBorders] = useState(null);
+  const navigate = useNavigate();
 
   const getDataCountry = () => {
     axios
@@ -47,9 +48,13 @@ const CountryDetail = () => {
     <>
       <Header />
       <main className="countrydetail-container container">
-        <Link className="countrydetail-btn" to="/">
+        <button
+          onClick={() => navigate(-1)}
+          className="countrydetail-btn"
+          to="/"
+        >
           <i className="fa fa-long-arrow-left"></i>Back
-        </Link>
+        </button>
         {data && (
           <div className="countrydetail-content" key={data[0]}>
             <img

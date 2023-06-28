@@ -1,5 +1,6 @@
 .homepage-container {
   padding-bottom: 50px;
+  padding-top: 100px;
 
   .homepage-filter-search {
     @include flexColumn();
@@ -84,6 +85,8 @@
 
 @media screen and (min-width: $breakpoint-lg) {
   .homepage-container {
+    padding-top: 130px;
+
     .homepage-filter {
       width: 20%;
     }
