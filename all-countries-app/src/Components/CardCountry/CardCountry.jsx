@@ -4,9 +4,10 @@ const CardCountry = ({
   population,
   region,
   capital,
+  nameURL,
 }) => {
   return (
-    <a className="container-cardcountry" href="/">
+    <a className="container-cardcountry" href={`detail/${nameURL}`}>
       <div className="cardcountry-top">
         <img
           className="cardcoutry-image"

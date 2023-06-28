@@ -51,10 +51,12 @@ const HomePage = () => {
         console.log(res);
         const data = res.data;
         setDataCountry(data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
-  console.log("search filter", regionFilter);
   return (
     <>
       <Header />
@@ -99,6 +101,7 @@ const HomePage = () => {
             return (
               <CardCountry
                 key={id}
+                nameURL={item?.name?.common}
                 nameCountry={item?.name?.common}
                 flagCountry={item?.flags?.png}
                 population={item?.population}
