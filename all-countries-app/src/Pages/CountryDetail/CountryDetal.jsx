@@ -43,8 +43,6 @@ const CountryDetail = () => {
   useEffect(() => getDataCountry(), []);
   useEffect(() => getCountryBorders(), [borderCountries]);
 
-  console.log("dataBoders", dataBorders);
-
   return (
     <>
       <Header />
