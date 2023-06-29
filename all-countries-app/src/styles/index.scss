@@ -1,10 +1,10 @@
 @import "./mixin.scss";
 @import "./variables.scss";
 @import "./Components/header.scss";
-@import "./Pages/Countrydetail.scss";
 @import "./Pages/Homepage.scss";
 @import "./Components/cardcountry.scss";
 @import "./Components/modal.scss";
+@import "./Pages/Countrydetail.scss";
 
 img {
   display: block;
@@ -63,5 +63,23 @@ ul {
   body {
     max-width: 1440px;
     margin: 0 auto;
+  }
+}
+
+// DARK MODE
+
+.dark-background {
+  background-color: $very-dark-blue-bg;
+}
+
+.dark-element-bg {
+  background-color: $dark-blue;
+}
+
+.input-dark {
+  color: $white;
+
+  &::placeholder {
+    color: $white;
   }
 }

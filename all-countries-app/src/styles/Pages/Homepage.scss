@@ -1,6 +1,7 @@
 .homepage-container {
   padding-bottom: 50px;
   padding-top: 100px;
+  background-color: $very-light-gray;
 
   .homepage-filter-search {
     @include flexColumn();
@@ -43,7 +44,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearence: none;
-    background-image: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png");
+    // background-image: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png");
     background-position: right 15px bottom 45%;
     background-repeat: no-repeat;
     background-size: 10px;

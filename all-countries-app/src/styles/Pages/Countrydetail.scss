@@ -1,18 +1,19 @@
 .countrydetail-container {
   padding-bottom: 60px;
   padding-top: 100px;
+  min-height: 100vh;
 
   .countrydetail-btn {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 5px 10px;
-    min-width: 90px;
+    min-width: 95px;
     text-align: center;
     @include textLight($black, 14px);
     margin-bottom: 40px;
     border: none;
     outline: none;
     background-color: $white;
-    border-radius: 3px;
+    border-radius: 5px;
   }
 
   .wrap-introduce {
@@ -75,7 +76,7 @@
     border-radius: 5px;
     padding: 5px 10px;
     width: 40%;
-    margin-right: 3%;
+    // margin-right: 3%;
     color: $black;
 
     &:last-child {
@@ -93,7 +94,7 @@
     @include textLight($very-dark-blue, 15px);
     text-align: center;
     flex-wrap: wrap;
-    row-gap: 10px;
+    gap: 18px;
   }
 
   .wrap-detail {

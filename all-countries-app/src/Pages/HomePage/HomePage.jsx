@@ -12,10 +12,12 @@ const HomePage = () => {
   const [countrySearch, setCountrySearch] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [regionFilter, setRegionFilter] = useState(null);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
 
   const getAllCountries = () => {
     axios.get(getAllCountriesURL).then((res) => {
-      console.log(res);
       const data = res.data;
       setDataCountry(data);
     });
@@ -33,7 +35,6 @@ const HomePage = () => {
     axios
       .get(`https://restcountries.com/v3.1/name/${countrySearch}?fullText=true`)
       .then((res) => {
-        console.log(res);
         const data = res.data;
         setDataCountry(data);
       })
@@ -48,7 +49,6 @@ const HomePage = () => {
     axios
       .get(`https://restcountries.com/v3.1/region/${regionFilter}`)
       .then((res) => {
-        console.log(res);
         const data = res.data;
         setDataCountry(data);
       })
@@ -57,16 +57,28 @@ const HomePage = () => {
       });
   };
 
+  const handleDarkMode = () => {
+    darkMode === "light" ? setDarkMode("dark") : setDarkMode("light");
+  };
+
+  localStorage.setItem("theme", darkMode);
+
   return (
     <>
-      <Header />
-      <main className="homepage-container container">
+      <Header onDarkMode={handleDarkMode} darkMode={darkMode} />
+      <main
+        className={`homepage-container container ${
+          darkMode === "dark" ? "dark-background" : ""
+        }`}
+      >
         <div className="homepage-filter-search">
           <div className="wrap-homepage-form">
             <form className="homepage-form">
               <input
                 onChange={(e) => handleChangeSearch(e)}
-                className="input"
+                className={`input ${
+                  darkMode === "dark" ? "dark-element-bg input-dark" : ""
+                }`}
                 type="text"
                 placeholder="Search for a country..."
               />
@@ -74,7 +86,12 @@ const HomePage = () => {
                 onClick={(e) => getCountrySearch(e)}
                 className="search-btn"
               >
-                <i className="fa fa-search"></i>
+                <i
+                  className="fa fa-search"
+                  style={{
+                    color: darkMode === "dark" ? "hsl(0, 0%, 100%)" : "#000000",
+                  }}
+                ></i>
               </button>
             </form>
           </div>
@@ -82,7 +99,15 @@ const HomePage = () => {
             onChange={(e) => {
               setRegionFilter(e.target.value);
             }}
-            className="homepage-filter"
+            className={`homepage-filter ${
+              darkMode === "dark" ? "dark-element-bg input-dark" : ""
+            }`}
+            style={{
+              backgroundImage:
+                darkMode === "light"
+                  ? "url('http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png')"
+                  : "url('https://o.remove.bg/downloads/70f6d4e8-13e7-496e-9308-030d3390aeaf/white-drop-down-arrow-11562884289ujhzrp5rwy-removebg-preview.png')",
+            }}
             name="region"
             onClick={getCountriesByFilter}
           >
@@ -107,6 +132,7 @@ const HomePage = () => {
                 population={item?.population}
                 region={item?.region}
                 capital={item?.capital}
+                darkMode={darkMode}
               />
             );
           })}
