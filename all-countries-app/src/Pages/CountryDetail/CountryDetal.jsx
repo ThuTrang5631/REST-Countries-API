@@ -47,6 +47,7 @@ const CountryDetail = () => {
     darkMode === "light" ? setDarkMode("dark") : setDarkMode("light");
   };
 
+  // set theme in localstorage
   localStorage.setItem("theme", darkMode);
 
   const styleBtnBack = {
