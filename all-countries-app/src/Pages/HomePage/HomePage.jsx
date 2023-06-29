@@ -4,6 +4,7 @@ import axios from "axios";
 import { getAllCountriesURL } from "../../utils/constants";
 import { useEffect, useState } from "react";
 import Modal from "../../Components/Modal";
+import Attribution from "../../Components/Attribution";
 
 const OPTIONS = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
@@ -137,6 +138,7 @@ const HomePage = () => {
             );
           })}
         </div>
+        <Attribution darkMode={darkMode} />
       </main>
       <Modal
         openModal={openModal}

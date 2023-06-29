@@ -83,3 +83,15 @@ ul {
     color: $white;
   }
 }
+
+.attribution {
+  margin-top: 80px;
+  font-size: 20px;
+  text-align: center;
+  color: $very-dark-blue;
+
+  a {
+    display: inline;
+    color: $very-dark-blue;
+  }
+}

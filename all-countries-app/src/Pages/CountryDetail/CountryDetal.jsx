@@ -2,6 +2,7 @@ import Header from "../../Components/Header";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Attribution from "../../Components/Attribution";
 
 const CountryDetail = () => {
   const { name } = useParams();
@@ -350,6 +351,7 @@ const CountryDetail = () => {
             </div>
           </div>
         )}
+        <Attribution darkMode={darkMode} />
       </main>
     </>
   );
