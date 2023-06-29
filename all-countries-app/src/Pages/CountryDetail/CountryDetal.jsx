@@ -83,7 +83,7 @@ const CountryDetail = () => {
           <div className="countrydetail-content" key={data[0]}>
             <img
               className="countrydetail-flag"
-              src={data[0].flags?.png}
+              src={data[0]?.flags?.png}
               alt="flag"
             ></img>
             <div className="countrydetail-desc">
@@ -93,7 +93,7 @@ const CountryDetail = () => {
                   color: darkMode === "dark" ? "hsl(0, 0%, 100%)" : "#000000",
                 }}
               >
-                {data[0].name?.common}
+                {data[0]?.name?.common}
               </h5>
               <div className="content-detail">
                 <div className="wrap-detail">
@@ -119,7 +119,9 @@ const CountryDetail = () => {
                               : "#000000",
                         }}
                       >
-                        {Object.values(data[0].name?.nativeName)[0]?.official}
+                        {data[0].name?.nativeName
+                          ? Object.values(data[0].name?.nativeName)[0]?.official
+                          : data[0]?.name?.official}
                       </p>
                     </li>
                     <li className="introduce">
@@ -143,7 +145,7 @@ const CountryDetail = () => {
                               : "#000000",
                         }}
                       >
-                        {data[0].population}
+                        {data[0]?.population}
                       </p>
                     </li>
                     <li className="introduce">
@@ -167,7 +169,7 @@ const CountryDetail = () => {
                               : "#000000",
                         }}
                       >
-                        {data[0].region}
+                        {data[0]?.region}
                       </p>
                     </li>
                     <li className="introduce">
@@ -191,7 +193,7 @@ const CountryDetail = () => {
                               : "#000000",
                         }}
                       >
-                        {data[0].subregion}
+                        {data[0]?.subregion || "No subregion found"}
                       </p>
                     </li>
                     <li className="introduce">
@@ -215,7 +217,7 @@ const CountryDetail = () => {
                               : "#000000",
                         }}
                       >
-                        {data[0].capital}
+                        {data[0]?.capital || "No capital found"}
                       </p>
                     </li>
                   </ul>
@@ -241,7 +243,7 @@ const CountryDetail = () => {
                               : "#000000",
                         }}
                       >
-                        {data[0].tld}
+                        {data[0]?.tld}
                       </p>
                     </li>
                     <li className="introduce">
@@ -265,9 +267,11 @@ const CountryDetail = () => {
                               : "#000000",
                         }}
                       >
-                        {Object.values(data[0].currencies).map(
-                          (currency) => currency?.name
-                        )}
+                        {data[0]?.currencies
+                          ? Object.values(data[0]?.currencies).map(
+                              (currency) => currency?.name
+                            )
+                          : "No currencies found"}
                       </p>
                     </li>
                     <li className="introduce">
@@ -291,7 +295,9 @@ const CountryDetail = () => {
                               : "#000000",
                         }}
                       >
-                        {Object.values(data[0].languages).join(", ")}
+                        {data[0]?.languages
+                          ? Object.values(data[0]?.languages).join(", ")
+                          : "No languages found"}
                       </p>
                     </li>
                   </ul>
