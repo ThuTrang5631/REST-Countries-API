@@ -12,11 +12,8 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -29,87 +26,116 @@ Users should be able to:
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode *(optional)*
+- Toggle the color scheme between light and dark mode
 
 ### Screenshot
 
-![](./screenshot.jpg)
+#### Homepage
+**Desktop:**
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+- Light mode: 
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+  ![image](https://github.com/ThuTrang5631/REST-Countries-API/assets/70875419/680d8b0b-c14e-43d2-b6ea-8a765b49d9ae)
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+- Dark mode: 
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+  ![image](https://github.com/ThuTrang5631/REST-Countries-API/assets/70875419/fd5aa2a3-e9fd-4032-9f0c-f3becf4ac0d5)
+
+**Mobile**
+
+- Light mode:
+
+  ![image](https://github.com/ThuTrang5631/REST-Countries-API/assets/70875419/8e290545-41cc-46f5-9a04-3cd251650048)
+
+- Dark mode:
+
+  ![image](https://github.com/ThuTrang5631/REST-Countries-API/assets/70875419/05d97f3d-b33a-45a9-b41d-5521a76e6dee)
+
+2. Detail Page
+**Desktop:**
+
+- Light mode:
+
+  ![image](https://github.com/ThuTrang5631/REST-Countries-API/assets/70875419/b7a0ff94-841c-467d-b511-9d7cdd5e30cf)
+
+- Dark mode:
+
+  ![image](https://github.com/ThuTrang5631/REST-Countries-API/assets/70875419/5da85fc2-22f7-431f-817a-11bee58241ff)
+
+**Mobile:**
+
+- Light mode:
+  
+  ![image](https://github.com/ThuTrang5631/REST-Countries-API/assets/70875419/3311328c-d449-44a3-a746-ffe8ac053629)
+
+- Dark mode:
+  
+  ![image](https://github.com/ThuTrang5631/REST-Countries-API/assets/70875419/f0c286d2-fc4b-4ef2-a773-b7119994af65)
+
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/ThuTrang5631/REST-Countries-API.git
+- Live Site URL: https://frontendmentor-rest-countries-phi.vercel.app/
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- SCSS
+- React Router dom, Axios
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
+1. Use `Axios` to call API
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
+```const getAllCountries = () => {
+    axios.get(getAllCountriesURL).then((res) => {
+      const data = res.data;
+      setDataCountry(data);
+    });
+  };
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+2. Use `react-router-dom`, use `useParams` to get params to call api
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+```
+<BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="detail/:name" element={<CountryDetail />} />
+      </Routes>
+    </BrowserRouter>
+```
+`detail/:name` => name is params
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+3. To back previous page
+```
+import { useNavigate, useParams } from "react-router-dom";
+const navigate = useNavigate();
+<button
+          onClick={() => navigate(-1)}
+          className="countrydetail-btn"
+          style={
+            darkMode === "dark"
+              ? styleBtnBack.btnBackDark
+              : styleBtnBack.btnBackLight
+          }
+        >
+          <i className="fa fa-long-arrow-left"></i>Back
+</button>
+```
+And so more....
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+Pagination for homepage, optimize code.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@thutrang](https://www.frontendmentor.io/profile/ThuTrang5631)
+- LinkedIn - [@thutrang](https://www.linkedin.com/in/thutrang5631/)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
