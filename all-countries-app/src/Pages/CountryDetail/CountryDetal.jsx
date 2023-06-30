@@ -351,7 +351,6 @@ const CountryDetail = () => {
             </div>
           </div>
         )}
-        <Attribution darkMode={darkMode} />
       </main>
     </>
   );
