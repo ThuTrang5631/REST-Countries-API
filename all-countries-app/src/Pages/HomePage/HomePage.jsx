@@ -5,17 +5,18 @@ import { getAllCountriesURL } from "../../utils/constants";
 import { useEffect, useState } from "react";
 import Modal from "../../Components/Modal";
 import Attribution from "../../Components/Attribution";
+import { useRef } from "react";
 
 const OPTIONS = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
 const HomePage = () => {
   const [dataCountry, setDataCountry] = useState(null);
-  const [countrySearch, setCountrySearch] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [regionFilter, setRegionFilter] = useState(null);
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
+  const ref = useRef(null);
 
   const getAllCountries = () => {
     axios.get(getAllCountriesURL).then((res) => {
@@ -26,21 +27,17 @@ const HomePage = () => {
 
   useEffect(() => getAllCountries(), []);
 
-  const handleChangeSearch = (e) => {
-    e.preventDefault();
-    setCountrySearch(e.target.value);
-  };
-
   const getCountrySearch = (e) => {
     e.preventDefault();
     axios
-      .get(`https://restcountries.com/v3.1/name/${countrySearch}?fullText=true`)
+      .get(`https://restcountries.com/v3.1/name/${e.target.value}`)
       .then((res) => {
         const data = res.data;
         setDataCountry(data);
       })
       .catch((error) => {
         console.log(error);
+        setDataCountry(null);
         setOpenModal(true);
       });
   };
@@ -76,7 +73,8 @@ const HomePage = () => {
           <div className="wrap-homepage-form">
             <form className="homepage-form">
               <input
-                onChange={(e) => handleChangeSearch(e)}
+                ref={ref}
+                onChange={getCountrySearch}
                 className={`input ${
                   darkMode === "dark"
                     ? "dark-element-bg input-dark"
@@ -85,10 +83,7 @@ const HomePage = () => {
                 type="text"
                 placeholder="Search for a country..."
               />
-              <button
-                onClick={(e) => getCountrySearch(e)}
-                className="search-btn"
-              >
+              <button className="search-btn" disabled>
                 <i
                   className="fa fa-search"
                   style={{
@@ -150,7 +145,11 @@ const HomePage = () => {
       <Modal
         openModal={openModal}
         content="The country you entered is not available. Please enter another country"
-        onCancel={() => setOpenModal(false)}
+        onCancel={() => {
+          setOpenModal(false);
+          getAllCountries();
+          ref.current.value = "";
+        }}
       ></Modal>
     </>
   );
