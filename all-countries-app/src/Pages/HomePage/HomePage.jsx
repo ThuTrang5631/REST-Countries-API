@@ -101,13 +101,15 @@ const HomePage = () => {
               setRegionFilter(e.target.value);
             }}
             className={`homepage-filter ${
-              darkMode === "dark" ? "dark-element-bg input-dark" : ""
+              darkMode === "dark"
+                ? "dark-element-bg input-dark"
+                : "light-background"
             }`}
             style={{
               backgroundImage:
                 darkMode === "light"
                   ? "url('http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png')"
-                  : "url('https://o.remove.bg/downloads/70f6d4e8-13e7-496e-9308-030d3390aeaf/white-drop-down-arrow-11562884289ujhzrp5rwy-removebg-preview.png')",
+                  : "url('https://www.freeiconspng.com/thumbs/white-arrow-png/white-down-arrow-png-2.png')",
             }}
             name="region"
             onClick={getCountriesByFilter}
