@@ -80,7 +80,7 @@ const HomePage = () => {
                 className={`input ${
                   darkMode === "dark"
                     ? "dark-element-bg input-dark"
-                    : "light-background"
+                    : "light-text-bg"
                 }`}
                 type="text"
                 placeholder="Search for a country..."
