@@ -108,7 +108,7 @@ const HomePage = () => {
             className={`homepage-filter ${
               darkMode === "dark"
                 ? "dark-element-bg input-dark"
-                : "light-background"
+                : "light-text-bg"
             }`}
             style={{
               backgroundImage:
