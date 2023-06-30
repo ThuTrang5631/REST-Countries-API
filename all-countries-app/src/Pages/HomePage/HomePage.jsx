@@ -78,7 +78,9 @@ const HomePage = () => {
               <input
                 onChange={(e) => handleChangeSearch(e)}
                 className={`input ${
-                  darkMode === "dark" ? "dark-element-bg input-dark" : ""
+                  darkMode === "dark"
+                    ? "dark-element-bg input-dark"
+                    : "light-background"
                 }`}
                 type="text"
                 placeholder="Search for a country..."
