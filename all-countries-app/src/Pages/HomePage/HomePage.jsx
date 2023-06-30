@@ -29,17 +29,19 @@ const HomePage = () => {
 
   const getCountrySearch = (e) => {
     e.preventDefault();
-    axios
-      .get(`https://restcountries.com/v3.1/name/${e.target.value}`)
-      .then((res) => {
-        const data = res.data;
-        setDataCountry(data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setDataCountry(null);
-        setOpenModal(true);
-      });
+    if (e.target.value) {
+      axios
+        .get(`https://restcountries.com/v3.1/name/${e.target.value}`)
+        .then((res) => {
+          const data = res.data;
+          setDataCountry(data);
+        })
+        .catch((error) => {
+          console.log(error);
+          setDataCountry(null);
+          setOpenModal(true);
+        });
+    }
   };
 
   const getCountriesByFilter = (e) => {
