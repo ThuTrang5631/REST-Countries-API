@@ -41,6 +41,8 @@ const HomePage = () => {
           setDataCountry(null);
           setOpenModal(true);
         });
+    } else {
+      getAllCountries();
     }
   };
 
