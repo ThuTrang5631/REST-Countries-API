@@ -66,7 +66,7 @@ const CountryDetail = () => {
       <Header onDarkMode={handleDarkMode} darkMode={darkMode} />
       <main
         className={`countrydetail-container container ${
-          darkMode === "dark" ? "dark-background" : ""
+          darkMode === "dark" ? "dark-background" : "light-background"
         }`}
       >
         <button

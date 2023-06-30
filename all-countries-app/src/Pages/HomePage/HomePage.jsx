@@ -69,7 +69,7 @@ const HomePage = () => {
       <Header onDarkMode={handleDarkMode} darkMode={darkMode} />
       <main
         className={`homepage-container container ${
-          darkMode === "dark" ? "dark-background" : ""
+          darkMode === "dark" ? "dark-background" : "light-background"
         }`}
       >
         <div className="homepage-filter-search">
@@ -90,7 +90,10 @@ const HomePage = () => {
                 <i
                   className="fa fa-search"
                   style={{
-                    color: darkMode === "dark" ? "hsl(0, 0%, 100%)" : "#000000",
+                    color:
+                      darkMode === "dark"
+                        ? "hsl(0, 0%, 100%)"
+                        : "hsl(0, 0%, 52%)",
                   }}
                 ></i>
               </button>
