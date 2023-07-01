@@ -10,6 +10,14 @@
 .dark-page-link {
   background-color: $dark-blue;
   color: $white;
+
+  &:focus {
+    background-color: $very-dark-blue-bg;
+  }
+
+  &:hover {
+    background-color: $very-dark-blue-bg;
+  }
 }
 
 .dark-page-item.disabled .page-link {

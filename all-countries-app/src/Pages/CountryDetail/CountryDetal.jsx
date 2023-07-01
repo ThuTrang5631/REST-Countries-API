@@ -322,10 +322,7 @@ const CountryDetail = () => {
                           }`}
                           href={`/detail/${border?.name?.common}`}
                           style={{
-                            color:
-                              darkMode === "dark"
-                                ? "hsl(0, 0%, 100%)"
-                                : "#000000",
+                            color: darkMode === "dark" && "hsl(0, 0%, 100%)",
                           }}
                         >
                           {border?.name?.common}

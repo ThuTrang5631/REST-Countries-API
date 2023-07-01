@@ -10,7 +10,7 @@ const Header = ({ onDarkMode, darkMode, ...props }) => {
         <a
           className="link"
           href="/"
-          style={{ color: darkMode === "dark" ? "hsl(0, 0%, 100%)" : "" }}
+          style={{ color: darkMode === "dark" && "hsl(0, 0%, 100%)" }}
         >
           Where in the world?
         </a>
@@ -18,7 +18,7 @@ const Header = ({ onDarkMode, darkMode, ...props }) => {
       <button
         onClick={onDarkMode}
         className="header-btn"
-        style={{ color: darkMode === "dark" ? "hsl(0, 0%, 100%)" : "" }}
+        style={{ color: darkMode === "dark" && "hsl(0, 0%, 100%)" }}
       >
         {darkMode === "dark" ? (
           <i className="fas fa-moon" style={{ color: "hsl(0, 0%, 100%)" }}></i>

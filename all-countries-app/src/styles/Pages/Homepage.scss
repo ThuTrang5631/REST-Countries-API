@@ -25,7 +25,7 @@
       border: none;
       background: transparent;
       position: absolute;
-      top: 15px;
+      top: 11px;
       left: 20px;
       padding: 0;
     }
@@ -75,6 +75,10 @@
     .homepage-form {
       .input {
         padding: 15px 5px 15px 45px;
+      }
+
+      .search-btn {
+        top: 13px;
       }
     }
 
