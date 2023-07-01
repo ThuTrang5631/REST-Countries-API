@@ -1,7 +1,7 @@
 const Header = ({ onDarkMode, darkMode, ...props }) => {
   return (
     <header
-      className={`container container-header ${
+      className={`countriesapp-container container-header ${
         darkMode === "dark" ? "dark-element-bg" : ""
       }`}
       {...props}

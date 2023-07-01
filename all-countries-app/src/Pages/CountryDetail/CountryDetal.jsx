@@ -64,7 +64,7 @@ const CountryDetail = () => {
     <>
       <Header onDarkMode={handleDarkMode} darkMode={darkMode} />
       <main
-        className={`countrydetail-container container ${
+        className={`countrydetail-container countriesapp-container ${
           darkMode === "dark" ? "dark-background" : "light-background"
         }`}
       >

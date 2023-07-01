@@ -1,0 +1,17 @@
+.countries-pagination {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.page-link {
+  color: $very-dark-blue;
+}
+
+.dark-page-link {
+  background-color: $dark-blue;
+  color: $white;
+}
+
+.dark-page-item.disabled .page-link {
+  background-color: $dark-blue;
+}

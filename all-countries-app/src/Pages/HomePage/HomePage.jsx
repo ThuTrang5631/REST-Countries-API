@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Modal from "../../Components/Modal";
 import Attribution from "../../Components/Attribution";
 import { useRef } from "react";
+import Pagination from "../../Components/Pagination";
 
 const OPTIONS = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
@@ -69,7 +70,7 @@ const HomePage = () => {
     <>
       <Header onDarkMode={handleDarkMode} darkMode={darkMode} />
       <main
-        className={`homepage-container container ${
+        className={`homepage-container countriesapp-container ${
           darkMode === "dark" ? "dark-background" : "light-background"
         }`}
       >
@@ -128,7 +129,7 @@ const HomePage = () => {
             ))}
           </select>
         </div>
-        <div className="list-cardcountry">
+        {/* <div className="list-cardcountry">
           {dataCountry?.map((item, id) => {
             return (
               <CardCountry
@@ -143,7 +144,31 @@ const HomePage = () => {
               />
             );
           })}
-        </div>
+        </div> */}
+        {dataCountry?.length >= 12 ? (
+          <Pagination
+            darkMode={darkMode}
+            itemsPerPage={12}
+            itemToTal={dataCountry}
+          />
+        ) : (
+          <div className="list-cardcountry">
+            {dataCountry?.map((item, id) => {
+              return (
+                <CardCountry
+                  key={id}
+                  nameURL={item?.name?.common}
+                  nameCountry={item?.name?.common}
+                  flagCountry={item?.flags?.png}
+                  population={item?.population}
+                  region={item?.region}
+                  capital={item?.capital}
+                  darkMode={darkMode}
+                />
+              );
+            })}
+          </div>
+        )}
         <Attribution darkMode={darkMode} />
       </main>
       <Modal

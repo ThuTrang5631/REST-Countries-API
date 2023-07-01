@@ -2,7 +2,7 @@ const Modal = ({ openModal, content, onCancel }) => {
   return (
     <>
       {openModal && (
-        <div className="container-modal">
+        <div onClick={onCancel} className="container-modal">
           <div className="wrap-modal">
             <button onClick={onCancel} className="modal-btn">
               <i className="fa fa-close"></i>
