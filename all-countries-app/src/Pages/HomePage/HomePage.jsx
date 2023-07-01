@@ -129,22 +129,6 @@ const HomePage = () => {
             ))}
           </select>
         </div>
-        {/* <div className="list-cardcountry">
-          {dataCountry?.map((item, id) => {
-            return (
-              <CardCountry
-                key={id}
-                nameURL={item?.name?.common}
-                nameCountry={item?.name?.common}
-                flagCountry={item?.flags?.png}
-                population={item?.population}
-                region={item?.region}
-                capital={item?.capital}
-                darkMode={darkMode}
-              />
-            );
-          })}
-        </div> */}
         {dataCountry?.length >= 12 ? (
           <Pagination
             darkMode={darkMode}
