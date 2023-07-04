@@ -4,10 +4,18 @@ import CardCountry from "../CardCountry";
 
 const Pagination = ({ itemsPerPage, itemToTal, darkMode }) => {
   const [itemOffset, setItemOffset] = useState(0);
-
   const endOffSet = itemOffset + itemsPerPage;
   const currentItems = itemToTal.slice(itemOffset, endOffSet);
   const pageCount = Math.ceil(itemToTal.length / itemsPerPage);
+  let forcePage;
+
+  console.log("currentItems", currentItems);
+
+  if (currentItems.length === 0) {
+    forcePage = 0;
+    const newOffset = (forcePage * itemsPerPage) % itemToTal.length;
+    setItemOffset(newOffset);
+  }
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % itemToTal.length;
@@ -37,6 +45,7 @@ const Pagination = ({ itemsPerPage, itemToTal, darkMode }) => {
       <ReactPaginate
         breakLabel="..."
         nextLabel="Next >"
+        forcePage={forcePage}
         previousLabel="< Previous"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
