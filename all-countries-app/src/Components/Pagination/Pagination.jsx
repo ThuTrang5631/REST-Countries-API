@@ -7,12 +7,11 @@ const Pagination = ({ itemsPerPage, itemToTal, darkMode }) => {
   const endOffSet = itemOffset + itemsPerPage;
   const currentItems = itemToTal.slice(itemOffset, endOffSet);
   const pageCount = Math.ceil(itemToTal.length / itemsPerPage);
-  let forcePage;
 
-  console.log("currentItems", currentItems);
+  const [forcePage, setForcePage] = useState(null);
 
   if (currentItems.length === 0) {
-    forcePage = 0;
+    setForcePage(0);
     const newOffset = (forcePage * itemsPerPage) % itemToTal.length;
     setItemOffset(newOffset);
   }
@@ -22,6 +21,7 @@ const Pagination = ({ itemsPerPage, itemToTal, darkMode }) => {
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     );
+    setForcePage(null);
     setItemOffset(newOffset);
   };
 
@@ -72,7 +72,7 @@ const Pagination = ({ itemsPerPage, itemToTal, darkMode }) => {
           darkMode === "light" ? "page-link" : "page-link dark-page-link"
         }
         containerClassName="pagination countries-pagination"
-        activeClassName="active"
+        activeClassName={"active" || (forcePage === 0 && "active")}
       />
     </>
   );
